@@ -38,8 +38,11 @@ body {
 	word-break: break-word;
 }
 
-h1 {
+h1, h2 {
 	color: var(--title-colour);
+}
+
+h1 {
 	font-size: 90px;
 	margin-block: 16px;
 }
