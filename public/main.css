@@ -79,3 +79,9 @@ a:hover {
 	margin: auto;
 	padding: 32px;
 }
+
+.balloon {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+}
