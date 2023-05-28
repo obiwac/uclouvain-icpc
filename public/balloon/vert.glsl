@@ -13,6 +13,7 @@ out vec3 normal;
 
 out vec4 world_pos;
 out float shading;
+out float spec;
 
 void main(void) {
 	normal = a_normal;
@@ -31,6 +32,10 @@ void main(void) {
 	vec3 normalized_sunlight = normalize(sunlight);
 
 	float product = dot(normalized_normal, normalized_sunlight);
+	float diffuse = 0.5 + 0.6 * product;
 
-	shading = 1.0 - 0.6 * abs(product);
+	float ambient = 0.3;
+
+	shading = max(ambient, diffuse);
+	spec = pow(max(product, 0.0), 32.0);
 }

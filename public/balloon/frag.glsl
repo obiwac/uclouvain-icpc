@@ -8,9 +8,13 @@ in vec3 normal;
 
 in vec4 world_pos;
 in float shading;
+in float spec;
 
 out vec4 frag_colour;
 
 void main(void) {
-	frag_colour = /* vec4(1.0, 0.0, 0.0, 1.0) * vec4(vec3(shading), 1.0); */ vec4(normal, 1.0);
+	vec3 diffuse_colour = vec3(1.0, 0.0, 0.0) * shading;
+	vec3 spec_colour = vec3(spec);
+
+	frag_colour = vec4(diffuse_colour + spec_colour, 1.0);
 }
