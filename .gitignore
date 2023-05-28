@@ -1,3 +1,10 @@
 *.core
 *.sw[nop]
 target
+
+# work stuff
+
+*.obj
+obj-conv
+*.blend[12]
+work/output.js
