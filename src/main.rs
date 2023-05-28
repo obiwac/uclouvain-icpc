@@ -3,16 +3,41 @@
 
 #[macro_use] extern crate rocket;
 extern crate maud;
+extern crate ammonia;
+extern crate pulldown_cmark;
 
-use maud::{Markup, html, DOCTYPE, PreEscaped};
+use maud::{Markup, html, DOCTYPE, PreEscaped, Render};
 use rocket::fs::FileServer;
+use pulldown_cmark::{Parser, html};
 
 macro_rules! relative {
 	($path: expr) => (concat!(env!("CARGO_MANIFEST_DIR"), $path))
 }
 
+macro_rules! include_static_unsafe {
+	($path: expr) => (include_str!(relative!(concat!("/public", $path))))
+}
+
 macro_rules! include_static {
-	($path: expr) => (PreEscaped(include_str!(relative!(concat!("/public", $path)))))
+	($path: expr) => (PreEscaped(include_static_unsafe!($path)))
+}
+
+macro_rules! include_md {
+	($path: expr) => (Markdown(include_static_unsafe!($path)))
+}
+
+struct Markdown<T: AsRef<str>>(T);
+
+impl <T: AsRef<str>> Render for Markdown<T> {
+	fn render(&self) -> Markup {
+		let mut unsafe_html = String::new();
+		let parser = Parser::new(self.0.as_ref());
+
+		html::push_html(&mut unsafe_html, parser);
+
+		let safe = ammonia::clean(&unsafe_html);
+		PreEscaped(safe)
+	}
 }
 
 fn base(content: Markup) -> Markup {
@@ -57,10 +82,7 @@ fn base(content: Markup) -> Markup {
 #[get("/")]
 fn index() -> Markup {
 	base(html! {
-		h1 {
-			"UCLouvain "
-			b { "ICPC" }
-		}
+		(include_md!("/md/index.md"))
 	})
 }
 

@@ -79,7 +79,7 @@ a {
 	transition: color .2s;
 }
 
-b {
+strong {
 	background: var(--gradient);
 	-webkit-background-clip: text;
 	background-clip: text;
