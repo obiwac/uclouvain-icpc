@@ -294,10 +294,15 @@ class Balloon {
 		const view_matrix = new Matrix()
 
 		view_matrix.translate(0, -1, -6)
-		view_matrix.rotate_2d(time / 3, -0.3)
+		view_matrix.rotate_2d(0, -0.3)
 
 		const vp_matrix = new Matrix(view_matrix)
 		vp_matrix.multiply(proj_matrix)
+
+		// model matrix
+
+		const model_matrix = new Matrix(identity)
+		model_matrix.rotate_2d(time, 0)
 
 		// actually render
 
@@ -307,7 +312,7 @@ class Balloon {
 		this.gl.useProgram(this.program)
 		this.gl.uniformMatrix4fv(this.render_state.vp_uniform, false, vp_matrix.data.flat())
 
-		this.balloon.draw(this.gl, this.render_state, identity /* no special transformation for balloon */)
+		this.balloon.draw(this.gl, this.render_state, model_matrix)
 
 		requestAnimationFrame((now) => this.render(now))
 	}
