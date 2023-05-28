@@ -1,330 +1,332 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Color+Emoji&display=swap');
 
 :root {
-	/* default colourscheme is light because accessibility */
-
-	--bg-colour: #ffffff;
-	--section-colour: #ffffff;
 	--gradient: -webkit-linear-gradient(50deg, rgb(255, 90, 20), rgb(255, 20, 80));
+	--background-colour: #ffffff;
 	--title-colour: #000000;
-	--text-colour: #222;
-	--accent-colour: rgb(255, 34, 137);
-	--shadow-colour: rgba(0, 0, 0, 0.2);
-	--accent-shadow-colour: rgba(183, 0, 255, 0.487);
-	--error-colour: #fcc
+	--text-colour: #000000;
+	--article-colour: #ffffff;
+	--accent-colour: #4385f5;
+	--muted-colour: #555555;
+	--shadow-colour: rgba(183, 0, 255, 0.487);
+	--border-radius: 12px;
+	--blur-radius: 0px;
+	--navbar-colour: #fffc;
+	--navbar-shadow: rgba(183, 0, 255, 0.1) 0 8px 32px;
+	--code-background: #ddd;
 }
-
-/* TODO media selectors for increased contrast ('prefers-contrast'), reduced motion ('prefers-reduced-motion'), reduced transparency ('prefers-reduced-transparency') */
 
 @media (prefers-color-scheme: light) {
 	/* leave it as default */
+	/* light is default because accessibility */
 }
 
 @media (prefers-color-scheme: dark) {
 	:root {
 		--gradient: -webkit-linear-gradient(50deg, rgb(255, 90, 20), rgb(255, 20, 80));
-		--bg-colour: #000000;
-		--section-colour: #111;
+		--background-colour: #111;
 		--title-colour: #ffffff;
 		--text-colour: #dddddd;
-		--accent-colour: rgb(255, 52, 221);
-		--shadow-colour: transparent;
-		--accent-shadow-colour: #ff00cc29;
-		--error-colour: #211
+		--muted-colour: #999999;
+		--code-background: #222;
 	}
 }
 
-html, body {
-	overflow-x: hidden;
-}
-
 body {
-	margin: 0;
-	padding-top: 64px;
-
-	background-color: var(--bg-colour);
+	background-color: var(--background-colour);
 	color: var(--text-colour);
+	margin: 0;
 
-	font-size: 22px;
+	font-size: 20px;
 	font-display: optional;
-	font-family: "Montserrat", sans-serif;
-
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	flex-wrap: wrap;
-
-	transition: background .2s, color .2s;
+	font-family: "Montserrat", sans-serif, "Noto Color Emoji", sans-serif;
+	word-break: break-word;
 }
 
 h1 {
 	color: var(--title-colour);
-	font-size: 70px;
-	margin-block: 0;
-
-	transition: color .2s;
-}
-
-h2 {
-	color: var(--title-colour);
-	font-size: 24px;
-
-	transition: color .2s;
-}
-
-a {
-	color: var(--accent-colour);
-	text-decoration: none;
-
-	transition: color .2s;
+	font-size: 90px;
+	margin-block: 16px;
 }
 
 strong {
+	/* text-shadow: rgba(255, 0, 191, 0.534) 0 0 16px; */
 	background: var(--gradient);
 	-webkit-background-clip: text;
 	background-clip: text;
 	-webkit-text-fill-color: transparent;
-	font-weight: 700;
-
-	transition: background .2s;
+	font-weight: bold;
 }
 
-label {
-	font-size: 16px;
+code {
+	border-radius: 8px;
+	background-color: var(--code-background);
 }
 
-.card {
-	box-shadow: var(--shadow-colour) 0 8px 32px;
-
-	background: var(--section-colour);
-	border-radius: 32px;
-	margin: 32px;
-
-	max-width: 100vw;
-
-	transition: background .2s, box-shadow .2s, border-radius, .2s;
+.inline-svg svg {
+	width: 24px;
+	margin: 4px;
+	margin-bottom: -4px;
 }
 
-section {
-	padding: 32px;
-	width: 400px;
+iframe {
+	border: none;
+	width: 100%;
 }
 
-.graph {
-	max-width: 600px;
-	max-height: 480px;
-
-	cursor: pointer;
-}
-
-.form-divider {
-	font-weight: 700;
-}
-
-.button {
+a {
+	text-decoration: none;
 	background: var(--gradient);
-	color: var(--bg-colour);
-	box-shadow: none;
-	border: none;
-	border-radius: 48px;
-	padding: 8px 32px;
-	margin-top: 32px;
-	font-size: 24px;
-	font-display: optional;
-	font-weight: 700;
-	width: 100%;
-
-	cursor: pointer;
-
-	opacity: 100%;
-	transition: background .2s, color .2s, opacity .2s, box-shadow .2s, transform .2s;
+	background-clip: none;
+	color: var(--background-colour);
+	font-weight: bold;
+	border-radius: 3px;
 }
 
-.button:hover {
-	box-shadow: var(--accent-shadow-colour) 0 8px 32px;
-	transform: translateY(-4px);
+a:hover {
+	/* transitions for gradients annoyingly aren't supported in most browsers */
+	background: var(--text-colour);
 }
 
-.button:active {
-	transform: none;
-	opacity: 50%;
+.container {
+	max-width: 950px;
+	margin: auto;
+	padding: 32px;
 }
 
-.input {
-	box-shadow: var(--shadow-colour) 0 8px 32px;
+/* things */
 
-	background: var(--bg-colour);
-	color: var(--text-colour);
-
-	border: none;
-	border-radius: 16px;
-
-	margin-block: 8px;
-	padding: 16px;
-
-	transition: background .2s, color .2s, box-shadow .2s;
+.things {
+	display: flex;
+	justify-content: space-around;
+	align-items: start;
+	flex-wrap: wrap;
+	padding-block: 32px;
+	padding-inline: 4px;
+	row-gap: 12px;
 }
 
-.input[type="number"] {
-	width: 48px;
+.thing {
+	max-width: 280px;
+	margin: 16px;
+	border-radius: var(--border-radius);
+	transition: transform 0.1s ease-in-out, background 0.1s ease-in-out;
 }
 
-.note {
-	color: #9a9a9a;
-	font-style: italic;
-	font-size: 12px;
-}
-
-/* radio buttons */
-
-input[type="radio"] {
-	appearance: none;
-	margin: 0;
-
-	color: var(--accent-colour);
-	width: 1.15em;
-	height: 1.15em;
-	border: 0.15em solid var(--accent-colour);
-	border-radius: 50%;
-
-	cursor: pointer;
-
-	transform: translateY(0.15em);
-	transition: background 120ms ease-in-out;
-}
-
-input[type="radio"]:checked {
-	background: var(--accent-colour);
-}
-
-
-/* checkbox buttons */
-
-input[type="checkbox"] {
-	appearance: none;
-	margin: 0;
-
-	color: var(--accent-colour);
-	width: 1.15em;
-	height: 1.15em;
-	border: 0.15em solid var(--accent-colour);
-	border-radius: 0.3em;
-
-	cursor: pointer;
-
-	transform: translateY(0.15em);
-	transition: background 120ms ease-in-out;
-}
-
-input[type="checkbox"]:checked {
-	background: var(--accent-colour);
-}
-
-/* sliders */
-
-input[type="range"] {
-	-webkit-appearance: none;
-	appearance: none;
-	width: 100%;
-	height: 0.4em;
-	background-image: var(--gradient);
-	border-radius: 0.5em;
-	outline: none;
-	cursor: pointer;
-
-	transition: box-shadow .2s, height .2s;
-}
-
-input[type="range"]:active {
-	box-shadow: var(--accent-shadow-colour) 0 8px 32px;
-	height: 0.7em;
-}
-
-/* have to write the same code once for both vendor prefixes because of Google being heinous */
-/* also, the em unit seems to be completely broken for borders on Chrome, but honestly just use Firefox */
-
-input[type="range"]::-moz-range-thumb {
-	appearance: none;
-
-	width: 1em;
-	height: 1em;
-	border-radius: 50%;
-
-	border: 0.15em solid var(--accent-colour);
-	background: var(--section-colour);
-
-	transition: border .2s, background .2s;
-}
-
-input[type="range"]::-webkit-slider-thumb {
-	-webkit-appearance: none;
-
-	width: 1em;
-	height: 1em;
-	border-radius: 50%;
-
-	border: 0.15em solid var(--accent-colour);
-	background: var(--section-colour);
-
-	transition: border .2s, background .2s;
-}
-
-input[type="range"]:hover::-moz-range-thumb {
-	border: 0.15em solid var(--section-colour);
-	background: var(--accent-colour);
-}
-
-input[type="range"]:hover::-webkit-slider-thumb {
-	border: 0.15em solid var(--section-colour);
-	background: var(--accent-colour);
-}
-
-/* hide stuff in form we don't need */
-
-#calving-selector, #moon-selector, #breed-selector, #paturage-selector {
-	display: none;
-}
-
-#chart1:checked ~ #calving-selector  { display: initial }
-#chart2:checked ~ #moon-selector     { display: initial }
-#chart3:checked ~ #breed-selector    { display: initial }
-#chart4:checked ~ #paturage-selector { display: initial }
-
-#cow-note {
-	display: none;
-}
-
-#proper_cows:checked ~ #cow-note {
-	display: block;
-}
-
-/* responsive layout */
-
-@media only screen and (max-width: 664px) {
-	.card {
-		box-shadow: none;
-		background: var(--bg-colour);
-		margin: 0;
-		border-radius: 0;
+@media screen and (max-width: 1024px) {
+	.thing {
+		max-width: 308px;
 	}
+}
 
-	.graph {
+@media screen and (max-width: 768px) {
+	.thing {
 		max-width: 100%;
 	}
+}
 
-	.input {
-		background-color: var(--section-colour);
+@media screen and (max-width: 480px) {
+	.things {
+		padding-inline: 0;
 	}
 
-	.error {
-		width: 100%;
+	.thing {
+		margin-inline: 0;
 	}
 }
 
-.error {
-	background-color: var(--error-colour);
-	text-align: center;
+.thing p {
+	margin-inline: 16px;
+	margin-top: 32px;
+	margin-bottom: 16px;
 
-	transition: box-shadow .2s, background .2s, border-radius .2s, width .2s;
+	/* text-align: justify; */
+	font-size: 18px;
 }
 
+.thing:hover {
+	background: var(--code-background);
+	transform: scale(105%);
+}
+
+.labeled-img {
+	max-width: 100%;
+	position: relative;
+	transition: transform 0.1s ease-in-out;
+}
+
+.thing:hover .labeled-img {
+	transform: scale(105%);
+}
+
+.labeled-img div {
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	height: 70%;
+	background: linear-gradient(to bottom, transparent, black);
+	border-radius: var(--border-radius);
+}
+
+.labeled-img div {
+	position: absolute;
+	bottom: 0;
+	display: flex;
+	align-items: center;
+}
+
+.labeled-img div div h2 {
+	color: white;
+	margin-inline: 32px;
+}
+
+.labeled-img div div svg {
+	color: white;
+	width: 24px;
+	margin-left: -16px;
+}
+
+.labeled-img img {
+	aspect-ratio: 8 / 5;
+	object-fit: cover;
+	width: 100%;
+	border-radius: var(--border-radius);
+}
+
+.learn-more {
+	margin-inline: 16px;
+	margin-bottom: 16px;
+	padding: 4px;
+	display: flex;
+	align-items: center;
+	border-radius: 4px;
+	cursor: pointer;
+	transition: background 0.1s ease-in-out;
+}
+
+.learn-more p {
+	background: none;
+	margin: 0;
+}
+
+.learn-more svg {
+	margin-right: 16px;
+	width: 24px;
+}
+
+.learn-more:hover {
+	background: var(--text-colour);
+}
+
+.learn-more p, .learn-more svg {
+	font-weight: lighter;
+	color: var(--muted-colour);
+	transition: color 0.1s ease-in-out;
+}
+
+.thing:hover .learn-more p, .thing:hover .learn-more svg {
+	font-weight: bold;
+	color: var(--text-colour);
+}
+
+.learn-more:hover p, .learn-more:hover svg {
+	color: var(--background-colour) !important;
+}
+
+/* socials */
+
+.socials {
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+	padding-block: 32px;
+	padding-inline: 8px;
+	column-gap: 24px;
+	row-gap: 12px;
+}
+
+.social {
+	padding: 4px;
+	display: flex;
+	align-items: center;
+	border-radius: 4px;
+	cursor: pointer;
+	transition: background 0.1s ease-in-out;
+}
+
+.social:hover {
+	background: var(--text-colour);
+	color: var(--background-colour);
+}
+
+.social p {
+	font-weight: bold;
+	background: none;
+	margin: 0;
+}
+
+.social svg {
+	margin-right: 16px;
+	width: 32px;
+}
+
+.social p, .social svg {
+	color: var(--text-colour);
+	transition: color 0.1s ease-in-out;
+}
+
+.social:hover p, .social:hover svg {
+	color: var(--background-colour);
+}
+
+/* explanation pages */
+
+.explanation-container {
+	padding: 32px;
+	gap: 64px;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
+	align-items: center;
+	max-width: 1600px;
+	margin-inline: auto;
+	min-height: 100vh;
+	min-height: 100svh;
+	box-sizing: border-box; /* so that min-height includes padding */
+}
+
+.explanation {
+	max-width: 500px;
+}
+
+.exhibit {
+	width: 800px;
+	aspect-ratio: 8 / 5;
+}
+
+.exhibit iframe {
+	border-radius: var(--border-radius);
+	height: 100%;
+}
+
+.exhibit canvas {
+	border-radius: var(--border-radius);
+	cursor: pointer;
+	width: 100%;
+	height: 100%;
+}
+
+@media screen and (max-width: 768px) {
+	.explanation-container {
+		padding-bottom: 0;
+	}
+
+	.exhibit {
+		min-width: 100vw;
+	}
+
+	.exhibit iframe, .exhibit canvas {
+		border-radius: 0;
+	}
+}

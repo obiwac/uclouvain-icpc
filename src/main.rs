@@ -82,7 +82,9 @@ fn base(content: Markup) -> Markup {
 #[get("/")]
 fn index() -> Markup {
 	base(html! {
-		(include_md!("/md/index.md"))
+		.container {
+			(include_md!("/md/index.md"))
+		}
 	})
 }
 
