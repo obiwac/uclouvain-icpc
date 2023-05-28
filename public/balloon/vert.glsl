@@ -7,6 +7,7 @@ layout(location = 1) in vec3 a_normal;
 
 uniform mat4 u_model;
 uniform mat4 u_vp;
+uniform vec3 u_sunlight;
 
 out vec3 pos;
 out vec3 normal;
@@ -26,10 +27,9 @@ void main(void) {
 	// lighting
 
 	vec3 adjusted_normal = (u_model * vec4(normal, 1.0)).xyz;
-	vec3 sunlight = vec3(-1.0, 0.0, 1.0);
 
 	vec3 normalized_normal = normalize(adjusted_normal);
-	vec3 normalized_sunlight = normalize(sunlight);
+	vec3 normalized_sunlight = normalize(u_sunlight);
 
 	float product = dot(normalized_normal, normalized_sunlight);
 	float diffuse = 0.5 + 0.6 * product;

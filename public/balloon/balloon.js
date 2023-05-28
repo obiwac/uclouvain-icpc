@@ -190,6 +190,9 @@ class Model {
 
 const TAU = Math.PI * 2
 
+var mx = 0
+var my = 0
+
 function abs_min(x, y) {
 	if (Math.abs(x) < Math.abs(y)) {
 		return x;
@@ -213,6 +216,14 @@ class Balloon {
 			canvas.hidden = true
 			return
 		}
+
+		window.addEventListener("mousemove", (event) => {
+			const cx = canvas.clientWidth  / 2
+			const cy = canvas.clientHeight / 2
+
+			mx = (event.clientX - cx) / canvas.clientWidth;
+			my = (event.clientY - cy) / canvas.clientHeight;
+		}, false)
 
 		this.x_res = this.gl.drawingBufferWidth
 		this.y_res = this.gl.drawingBufferHeight
@@ -261,11 +272,12 @@ class Balloon {
 		// we have to do this for attributes too, because WebGL 1.0 limits us to older shader models
 
 		this.render_state = {
-			pos_attr:        0, // this.gl.getAttribLocation(this.program, "a_pos"),
-			normal_attr:     1, // this.gl.getAttribLocation(this.program, "a_normal"),
+			pos_attr:         0, // this.gl.getAttribLocation(this.program, "a_pos"),
+			normal_attr:      1, // this.gl.getAttribLocation(this.program, "a_normal"),
 
-			model_uniform:   this.gl.getUniformLocation(this.program, "u_model"),
-			vp_uniform:      this.gl.getUniformLocation(this.program, "u_vp"),
+			model_uniform:    this.gl.getUniformLocation(this.program, "u_model"),
+			vp_uniform:       this.gl.getUniformLocation(this.program, "u_vp"),
+			sunlight_uniform: this.gl.getUniformLocation(this.program, "u_sunlight"),
 		}
 
 		// load models
@@ -313,6 +325,8 @@ class Balloon {
 		// model matrix
 
 		const model_matrix = new Matrix(identity)
+
+		model_matrix.translate(0, Math.sin(time) / 5, 0)
 		model_matrix.rotate_2d(time, 0)
 
 		// actually render
@@ -322,6 +336,7 @@ class Balloon {
 
 		this.gl.useProgram(this.program)
 		this.gl.uniformMatrix4fv(this.render_state.vp_uniform, false, vp_matrix.data.flat())
+		this.gl.uniform3f(this.render_state.sunlight_uniform, mx, -my, 0.5)
 
 		this.balloon.draw(this.gl, this.render_state, model_matrix)
 
