@@ -177,7 +177,13 @@ class Model {
 		gl.vertexAttribPointer(render_state.normal_attr, 3, gl.FLOAT, gl.FALSE, float_size * 6, float_size * 3)
 
 		// finally, actually draw the model
+		// we draw the back face followed by the front face, so we blend the fragments of both together
+		// this is actually why we don't need depth testing, as our balloon is convex and, aside from front/back which we're anyway controlling, there are no overlapping fragments
 
+		gl.cullFace(gl.FRONT)
+		gl.drawElements(gl.TRIANGLES, this.model.indices.length, gl.UNSIGNED_SHORT, 0)
+
+		gl.cullFace(gl.BACK)
 		gl.drawElements(gl.TRIANGLES, this.model.indices.length, gl.UNSIGNED_SHORT, 0)
 	}
 }
@@ -212,7 +218,12 @@ class Balloon {
 		this.y_res = this.gl.drawingBufferHeight
 
 		this.gl.viewport(0, 0, this.x_res, this.y_res)
-		this.gl.enable(this.gl.DEPTH_TEST)
+
+		this.gl.disable(this.gl.DEPTH_TEST)
+		this.gl.enable(this.gl.CULL_FACE)
+
+		this.gl.enable(this.gl.BLEND)
+		this.gl.blendFunc(this.gl.SRC_ALPHA, this.gl.ONE_MINUS_SRC_ALPHA)
 
 		// load shader program
 		// again, nothing interesting to comment on, this is all basically boilerplate
