@@ -38,7 +38,7 @@ BAPC (Benelux Algorithm Programming Contest).
 
 NWERC (Northwestern Europe Regional Contest).
 
-### Worlds Finals
+### World finals
 
 ## Training
 
