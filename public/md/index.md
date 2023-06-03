@@ -42,7 +42,7 @@ NWERC (Northwestern Europe Regional Contest) is one of the most important contes
 ### World finals
 ...
 ## Training
-Eeach week, our lovely coach Henri prepare a weekly contest.
+Eeach week, our lovely coach Henri prepare a weekly contest on [Kattis](https://open.kattis.com/). Every thursday we discuss about the problems and solutions.
 ## How to participate
 You can join us via [Discord](https://discord.gg/HYVNGM9yGw)
 
