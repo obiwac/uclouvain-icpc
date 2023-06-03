@@ -16,7 +16,8 @@ Here are a few reasons why taking part in algorithmics contests is a good idea:
 - Karaoke. Need I say more?
 - It's a perfect addition to your **Tinder** profile!
 
-## What is ICPC
+## What is ICPC?
+
 ICPC stands for International Collegiate Programming Contest. It is an algorithmic programming contest for college students. Teams of three, representing their university, work to solve the most real-world problems, fostering collaboration, creativity, innovation, and the ability to perform under pressure.
 
 ## How it works ? 
