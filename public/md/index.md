@@ -34,7 +34,8 @@ Here in Belgium there are 3 levels to go through before reaching the world final
 BAPC stands for Benelux Algorithm Programming Contest
 
 ### NWERC
-NWERC stands for Northwestern Europe Regional Contest
+
+NWERC (Northwestern Europe Regional Contest).
 
 ### Worlds Finals
 
