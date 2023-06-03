@@ -25,7 +25,7 @@ Teams of three - representing their university - work to solve the most problems
 
 Here in Belgium there are 3 levels to go through before reaching the world finals:
 
-- pre-BAPC
+- Pre-BAPC
 - BAPC
 - NWERC
 - World finals
