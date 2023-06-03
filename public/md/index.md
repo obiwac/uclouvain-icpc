@@ -42,7 +42,9 @@ BAPC (Benelux Algorithm Programming Contest).
 
 ### NWERC
 
-NWERC (Northwestern Europe Regional Contest) is one of the most important contest, University from Northwestern Europe will compote against each other. Generally top 3 teams will go to the Worlds finals.
+NWERC (Northwestern Europe Regional Contest) is the contest where universities across Northwestern Europe compete for a spot in the ICPC world finals.
+Generally it's the best 3 teams who go to the world finals.
+Doing well in the BAPC isn't necessarily a prerequisite for being sent to the NWERC; that's a decision the university makes.
 
 ### World finals
 ...
