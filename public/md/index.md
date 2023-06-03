@@ -25,23 +25,24 @@ Teams of three - representing their university - work to solve the most problems
 
 Here in Belgium there are 3 levels to go through before reaching the world finals:
 
-- preBAPC
+- pre-BAPC
 - BAPC
 - NWERC
 - World finals
 
-### preBAPC & BAPC
+### pre-BAPC & BAPC
+Pre-BAPC is a competition which occurs inside of the [University Catholique de  Louvain](https://en.wikipedia.org/wiki/Universit%C3%A9_catholique_de_Louvain). The best teams will go to the BAPC.
 
 BAPC (Benelux Algorithm Programming Contest).
 
 ### NWERC
 
-NWERC (Northwestern Europe Regional Contest).
+NWERC (Northwestern Europe Regional Contest) is one of the most important contest, University from Northwestern Europe will compote against each other. Generally top 3 teams will go to the Worlds finals.
 
 ### World finals
-
+...
 ## Training
-
+Eeach week, our lovely coach Henri prepare a weekly contest.
 ## How to participate
+You can join us via [Discord](https://discord.gg/HYVNGM9yGw)
 
-## Weekly contest
