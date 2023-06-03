@@ -21,7 +21,8 @@ Here are a few reasons why taking part in algorithmics contests is a good idea:
 ICPC (International Collegiate Programming Contest) is an algorithmics programming contest for university students.
 Teams of three - representing their university - work to solve the most problems, fostering collaboration, creativity, innovation, and the ability to perform under pressure.
 
-## How it works ? 
+## How does it work?
+
 Here in Belgium there are 3 levels to go through before reaching the world finals:
 
 - preBAPC
