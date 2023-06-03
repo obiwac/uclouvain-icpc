@@ -30,8 +30,8 @@ Here in Belgium there are 3 levels to go through before reaching the world final
 - NWERC
 - World finals
 
-Each contest has on average 12 problems from all difficulties.
-Eeach problem has a Time and memory constrain, to solve this problem your solution must fit the constrains.
+Each contest has an average of 12 problems ranging from easy (-ish) to hard, though the NWERC is generally harder than the BAPC which is generally harder than the pre-BAPC.
+Each problem has a time limit and a memory constraint, which your solution must execute within.
 
 ### Pre-BAPC & BAPC
 
