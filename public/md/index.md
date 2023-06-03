@@ -30,6 +30,9 @@ Here in Belgium there are 3 levels to go through before reaching the world final
 - NWERC
 - World finals
 
+Each contest has on average 12 problems from all difficulties.
+Eeach problem has a Time and memory constrain, to solve this problem your solution must fit the constrains.
+
 ### pre-BAPC & BAPC
 Pre-BAPC is a competition which occurs inside of the [University Catholique de  Louvain](https://en.wikipedia.org/wiki/Universit%C3%A9_catholique_de_Louvain). The best teams will go to the BAPC.
 
