@@ -47,9 +47,14 @@ Generally it's the best 3 teams who go to the world finals.
 Doing well in the BAPC isn't necessarily a prerequisite for being sent to the NWERC; that's a decision the university makes.
 
 ### World finals
-...
-## Training
-Eeach week, our lovely coach Henri prepare a weekly contest on [Kattis](https://open.kattis.com/). Every thursday we discuss about the problems and solutions.
-## How to participate
-You can join us via [Discord](https://discord.gg/HYVNGM9yGw)
 
+...
+
+## Training
+
+Each week, our beloved coach Henri prepares a weekly contest on [Kattis](https://open.kattis.com/).
+Every Thursday at lunchtime we discuss the problems and solutions together.
+
+## How to participate
+
+You can join us on [Discord](https://discord.gg/HYVNGM9yGw)!
