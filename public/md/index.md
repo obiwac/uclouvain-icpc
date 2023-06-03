@@ -22,10 +22,12 @@ ICPC (International Collegiate Programming Contest) is an algorithmics programmi
 Teams of three - representing their university - work to solve the most problems, fostering collaboration, creativity, innovation, and the ability to perform under pressure.
 
 ## How it works ? 
-There is multiple levels of competition. Here in Belgium there is 3 levels:
+Here in Belgium there are 3 levels to go through before reaching the world finals:
+
+- preBAPC
 - BAPC
 - NWERC
-- Worlds Finals
+- World finals
 
 ### BAPC
 BAPC stands for Benelux Algorithm Programming Contest
