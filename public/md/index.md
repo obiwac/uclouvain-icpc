@@ -69,7 +69,8 @@ There is a lot of ressources to learn competitive programming, some website hand
 - [Codechef](https://www.codechef.com/)
 - [CSES](https://cses.fi/)
 
-There is also books where you can lean the basis
+There are also books from which you can learn the basics:
+
 - [CSES](https://cses.fi/book/index.php)
 
 ## How to participate
