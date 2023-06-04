@@ -34,9 +34,9 @@ Each contest has an average of 12 problems ranging from easy (-ish) to hard, tho
 Each problem has a time limit and a memory constraint, which your solution must execute within.
 
 ### When ?
-- Pre-BAPC & BAPC generally occurs in october
-- NWERC occurs in late november or early december.
 
+- The Pre-BAPC & BAPC generally occur in October
+- The NWERC occurs in late November or early December.
 
 ### Pre-BAPC & BAPC
 
