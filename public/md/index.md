@@ -26,19 +26,24 @@ Teams of three - representing their university - work to solve the most problems
 Here in Belgium there are 3 levels to go through before reaching the world finals:
 
 - Pre-BAPC
-- BAPC
-- NWERC
+- [BAPC](https://en.wikipedia.org/wiki/BAPC)
+- [NWERC](https://2023.nwerc.eu/)
 - World finals
 
 Each contest has an average of 12 problems ranging from easy (-ish) to hard, though the NWERC is generally harder than the BAPC which is generally harder than the pre-BAPC.
 Each problem has a time limit and a memory constraint, which your solution must execute within.
+
+### When ?
+- Pre-BAPC & BAPC generally occurs in october
+- NWERC occurs in late november or early december.
+
 
 ### Pre-BAPC & BAPC
 
 The Pre-BAPC is a qualifying round which takes place in each university participating in the BAPC (in our case, [University Catholique de  Louvain](https://en.wikipedia.org/wiki/Universit%C3%A9_catholique_de_Louvain)).
 The best teams will go on to participate in the BAPC.
 
-BAPC (Benelux Algorithm Programming Contest).
+BAPC (Benelux Algorithm Programming Contest) is a regional contest to determine which teams of the university will go to the NWERC.
 
 ### NWERC
 
@@ -48,12 +53,24 @@ Doing well in the BAPC isn't necessarily a prerequisite for being sent to the NW
 
 ### World finals
 
-...
+World finals take place all around the world, it is the most presigious contest. Contest rules are the same as NWERC & BAPC.
+Problem set tends to be more difficult than NWERC.
+
 
 ## Training
 
 Each week, our beloved coach Henri prepares a weekly contest on [Kattis](https://open.kattis.com/).
 Every Thursday at lunchtime we discuss the problems and solutions together.
+
+There is a lot of ressources to learn competitive programming, some website handle online contest to train : 
+- [Codeforces](https://codeforces.com/)
+- [Atcoder](https://atcoder.jp/)
+- [Kattis](https://open.kattis.com/)
+- [Codechef](https://www.codechef.com/)
+- [CSES](https://cses.fi/)
+
+There is also books where you can lean the basis
+- [CSES](https://cses.fi/book/index.php)
 
 ## How to participate
 
