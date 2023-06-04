@@ -62,7 +62,11 @@ Problem set tends to be more difficult than NWERC.
 Each week, our beloved coach Henri prepares a weekly contest on [Kattis](https://open.kattis.com/).
 Every Thursday at lunchtime we discuss the problems and solutions together.
 
-There is a lot of ressources to learn competitive programming, some website handle online contest to train : 
+There are a lot of resources to learn competitive programming.
+Some website even host online contests to train on.
+
+Here are a few of them:
+ 
 - [Codeforces](https://codeforces.com/)
 - [Atcoder](https://atcoder.jp/)
 - [Kattis](https://open.kattis.com/)
