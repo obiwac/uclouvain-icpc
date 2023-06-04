@@ -53,9 +53,8 @@ Doing well in the BAPC isn't necessarily a prerequisite for being sent to the NW
 
 ### World finals
 
-World finals take place all around the world, it is the most presigious contest. Contest rules are the same as NWERC & BAPC.
-Problem set tends to be more difficult than NWERC.
-
+World finals can take place anywhere around the world, and is the most prestigious of the contests.
+The contest rules are the same as the NWERC and the BAPC, but the problem set tends to be harder than the NWERC.
 
 ## Training
 
