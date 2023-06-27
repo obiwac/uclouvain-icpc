@@ -14,4 +14,4 @@ Here are a few reasons why taking part in algorithmics contests is a good idea:
 - **Teamwork**; it's cool.
 - You (sometimes) receive **balloons** when you successfully complete a problem.
 - Karaoke. Need I say more?
-- It's a perfect addition to your **Tinder** profile!
+- It's the perfect addition to your **Tinder** profile!

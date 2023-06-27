@@ -85,6 +85,21 @@ fn index() -> Markup {
 		.container {
 			(include_md!("/md/index.md"))
 		}
+		.balloon {
+			// shaders
+
+			script #vert-shader type="x-shader/x-vertex" { (include_static!("/balloon/vert.glsl")) }
+			script #frag-shader type="x-shader/x-fragment" { (include_static!("/balloon/frag.glsl")) }
+
+			// models
+
+			script src="/public/balloon/model.js" defer {}
+
+			// actual balloon
+
+			canvas #balloon width="400px" height="500px";
+			script src="/public/balloon/balloon.js" defer {}
+		}
 	})
 }
 
