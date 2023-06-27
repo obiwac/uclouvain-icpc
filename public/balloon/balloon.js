@@ -25,12 +25,13 @@ class Matrix {
 		const right = new Matrix(this)
 
 		for (let i = 0; i < 4; i++) {
-			for (let j = 0; j < 4; j++)
+			for (let j = 0; j < 4; j++) {
 				this.data[i][j] =
 					left.data[0][j] * right.data[i][0] +
 					left.data[1][j] * right.data[i][1] +
 					left.data[2][j] * right.data[i][2] +
 					left.data[3][j] * right.data[i][3]
+			}
 		}
 	}
 
@@ -43,11 +44,12 @@ class Matrix {
 	}
 
 	translate(x, y, z) {
-		for (let i = 0; i < 4; i++)
+		for (let i = 0; i < 4; i++) {
 			this.data[3][i] +=
 				this.data[0][i] * x +
 				this.data[1][i] * y +
 				this.data[2][i] * z
+		}
 	}
 
 	rotate(theta, x, y, z) {
@@ -103,8 +105,9 @@ class Matrix {
 		// clear out matrix
 
 		for (let i = 0; i < 4; i++) {
-			for (let j = 0; j < 4; j++)
+			for (let j = 0; j < 4; j++) {
 				this.data[i][j] = 0
+			}
 		}
 
 		this.data[0][0] = 2 * near / dx
@@ -193,6 +196,9 @@ const TAU = Math.PI * 2
 var mx = 0
 var my = 0
 
+var ripple_origin = [0, 0]
+var ripple_time = 0
+
 function abs_min(x, y) {
 	if (Math.abs(x) < Math.abs(y)) {
 		return x;
@@ -223,6 +229,18 @@ class Balloon {
 
 			mx = (event.clientX - cx) / canvas.clientWidth;
 			my = (event.clientY - cy) / canvas.clientHeight;
+		}, false)
+
+		window.addEventListener("click", () => {
+			// XXX a bunch of these magic values can be found in the vertex shader
+			//     they're hardcoded out of laziness
+
+			if (ripple_time * 6 - 3 < TAU) {
+				return
+			}
+
+			ripple_origin = [mx, -my]
+			ripple_time = 0
 		}, false)
 
 		this.x_res = this.gl.drawingBufferWidth
@@ -272,12 +290,15 @@ class Balloon {
 		// we have to do this for attributes too, because WebGL 1.0 limits us to older shader models
 
 		this.render_state = {
-			pos_attr:         0, // this.gl.getAttribLocation(this.program, "a_pos"),
-			normal_attr:      1, // this.gl.getAttribLocation(this.program, "a_normal"),
+			pos_attr:              0, // this.gl.getAttribLocation(this.program, "a_pos"),
+			normal_attr:           1, // this.gl.getAttribLocation(this.program, "a_normal"),
 
-			model_uniform:    this.gl.getUniformLocation(this.program, "u_model"),
-			vp_uniform:       this.gl.getUniformLocation(this.program, "u_vp"),
-			sunlight_uniform: this.gl.getUniformLocation(this.program, "u_sunlight"),
+			model_uniform:         this.gl.getUniformLocation(this.program, "u_model"),
+			vp_uniform:            this.gl.getUniformLocation(this.program, "u_vp"),
+			sunlight_uniform:      this.gl.getUniformLocation(this.program, "u_sunlight"),
+
+			ripple_origin_uniform: this.gl.getUniformLocation(this.program, "u_ripple_origin"),
+			ripple_time_uniform:   this.gl.getUniformLocation(this.program, "u_ripple_time"),
 		}
 
 		// load models
@@ -300,16 +321,21 @@ class Balloon {
 		this.prev = now
 
 		const time = now / 1000
+		ripple_time += dt
+
+		console.log(ripple_time)
 
 		// create matrices
 
 		const multiplier = dt * 5
 
-		if (multiplier > 1)
+		if (multiplier > 1) {
 			this.fov = this.target_fov
+		}
 
-		else
+		else {
 			this.fov += (this.target_fov - this.fov) * multiplier
+		}
 
 		const proj_matrix = new Matrix()
 		proj_matrix.perspective(this.fov, this.y_res / this.x_res, 2, 20)
@@ -337,6 +363,9 @@ class Balloon {
 		this.gl.useProgram(this.program)
 		this.gl.uniformMatrix4fv(this.render_state.vp_uniform, false, vp_matrix.data.flat())
 		this.gl.uniform3f(this.render_state.sunlight_uniform, mx, -my, 0.5)
+
+		this.gl.uniform3f(this.render_state.ripple_origin_uniform, ...ripple_origin, 0.5)
+		this.gl.uniform1f(this.render_state.ripple_time_uniform, ripple_time)
 
 		this.balloon.draw(this.gl, this.render_state, model_matrix)
 
