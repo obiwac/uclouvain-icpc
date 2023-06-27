@@ -201,6 +201,7 @@ var target_my = 0
 
 var ripple_origin = [0, 0]
 var ripple_time = 0
+var alpha = 1
 
 function abs_min(x, y) {
 	if (Math.abs(x) < Math.abs(y)) {
@@ -226,7 +227,7 @@ class Balloon {
 			return
 		}
 
-		window.addEventListener("mousemove", (event) => {
+		window.addEventListener("mousemove", event => {
 			const rect = canvas.getBoundingClientRect()
 
 			const cx = rect.left + canvas.clientWidth  / 2
@@ -247,6 +248,10 @@ class Balloon {
 			ripple_origin = [target_mx, -target_my]
 			ripple_time = 0
 		}, false)
+
+		window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", event => {
+			alpha = event.matches ? 0.8 : 1
+		})
 
 		this.x_res = this.gl.drawingBufferWidth
 		this.y_res = this.gl.drawingBufferHeight
@@ -304,6 +309,8 @@ class Balloon {
 
 			ripple_origin_uniform: this.gl.getUniformLocation(this.program, "u_ripple_origin"),
 			ripple_time_uniform:   this.gl.getUniformLocation(this.program, "u_ripple_time"),
+
+			alpha_uniform:         this.gl.getUniformLocation(this.program, "u_alpha"),
 		}
 
 		// load models
@@ -381,6 +388,7 @@ class Balloon {
 
 		this.gl.uniform3f(this.render_state.ripple_origin_uniform, ...ripple_origin, 0.5)
 		this.gl.uniform1f(this.render_state.ripple_time_uniform, ripple_time)
+		this.gl.uniform1f(this.render_state.alpha_uniform, alpha)
 
 		this.balloon.draw(this.gl, this.render_state, model_matrix)
 
