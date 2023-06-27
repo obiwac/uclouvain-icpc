@@ -196,6 +196,9 @@ const TAU = Math.PI * 2
 var mx = 0
 var my = 0
 
+var target_mx = 0
+var target_my = 0
+
 var ripple_origin = [0, 0]
 var ripple_time = 0
 
@@ -224,11 +227,13 @@ class Balloon {
 		}
 
 		window.addEventListener("mousemove", (event) => {
-			const cx = canvas.clientWidth  / 2
-			const cy = canvas.clientHeight / 2
+			const rect = canvas.getBoundingClientRect()
 
-			mx = (event.clientX - cx) / canvas.clientWidth;
-			my = (event.clientY - cy) / canvas.clientHeight;
+			const cx = rect.left + canvas.clientWidth  / 2
+			const cy = rect.top + canvas.clientHeight / 2
+
+			target_mx = (event.clientX - cx) / canvas.clientWidth;
+			target_my = (event.clientY - cy) / canvas.clientHeight;
 		}, false)
 
 		window.addEventListener("click", () => {
@@ -239,7 +244,7 @@ class Balloon {
 				return
 			}
 
-			ripple_origin = [mx, -my]
+			ripple_origin = [target_mx, -target_my]
 			ripple_time = 0
 		}, false)
 
@@ -323,11 +328,9 @@ class Balloon {
 		const time = now / 1000
 		ripple_time += dt
 
-		console.log(ripple_time)
-
 		// create matrices
 
-		const multiplier = dt * 5
+		let multiplier = dt * 5
 
 		if (multiplier > 1) {
 			this.fov = this.target_fov
@@ -337,12 +340,24 @@ class Balloon {
 			this.fov += (this.target_fov - this.fov) * multiplier
 		}
 
+		multiplier = dt * 15
+
+		if (multiplier > 1) {
+			mx = target_mx
+			my = target_my
+		}
+
+		else {
+			mx += (target_mx - mx) * multiplier
+			my += (target_my - my) * multiplier
+		}
+
 		const proj_matrix = new Matrix()
 		proj_matrix.perspective(this.fov, this.y_res / this.x_res, 2, 20)
 
 		const view_matrix = new Matrix()
 
-		view_matrix.translate(0, -1, -6)
+		view_matrix.translate(0, -1.1, -5)
 		view_matrix.rotate_2d(0, -0.3)
 
 		const vp_matrix = new Matrix(view_matrix)

@@ -97,7 +97,7 @@ fn index() -> Markup {
 
 			// actual balloon
 
-			canvas #balloon width="500px" height="600px";
+			canvas #balloon width="400px" height="500px";
 			script src="/public/balloon/balloon.js" defer {}
 		}
 	})
