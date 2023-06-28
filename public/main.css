@@ -79,3 +79,23 @@ a:hover {
 	margin: auto;
 	padding: 32px;
 }
+
+.balloon {
+	position: absolute;
+	top: 100px;
+	z-index: -999;
+}
+
+@media (max-width: 1750px) {
+	.balloon {
+		display: flex;
+		position: relative;
+	}
+
+	.balloon canvas {
+		display: block;
+		margin-inline: auto;
+		margin-top: -150px;
+		max-width: 80%;
+	}
+}
